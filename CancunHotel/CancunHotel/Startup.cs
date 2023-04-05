@@ -1,11 +1,16 @@
-﻿using CancunHotel.Repository.Context;
+﻿using CancunHotel.Repository;
+using CancunHotel.Repository.Context;
+using CancunHotel.Repository.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
 
-namespace CancunHotelApi
+namespace CancunHotel
 {
     public class Startup
     {
@@ -49,7 +54,20 @@ namespace CancunHotelApi
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            // Register the repository interface and implementation
+            services.AddScoped<IReservationRepository, ReservationRepository>();
+
             services.AddControllers();
+
+            // Configure Swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cancun Hotel API", Version = "v1" });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -58,6 +76,12 @@ namespace CancunHotelApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Selazar Retailer API v1");
+            });
 
             app.UseHttpsRedirection();
 

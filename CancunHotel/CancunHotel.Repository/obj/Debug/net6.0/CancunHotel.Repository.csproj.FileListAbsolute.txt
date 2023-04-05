@@ -1,0 +1,5 @@
+C:\Users\ASUS\source\repos\cancun-hotel-alten\CancunHotel\CancunHotel.Repository\obj\Debug\net6.0\CancunHotel.Repository.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\cancun-hotel-alten\CancunHotel\CancunHotel.Repository\obj\Debug\net6.0\CancunHotel.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\source\repos\cancun-hotel-alten\CancunHotel\CancunHotel.Repository\obj\Debug\net6.0\CancunHotel.Repository.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\cancun-hotel-alten\CancunHotel\CancunHotel.Repository\obj\Debug\net6.0\CancunHotel.Repository.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\cancun-hotel-alten\CancunHotel\CancunHotel.Repository\obj\Debug\net6.0\CancunHotel.Repository.csproj.CoreCompileInputs.cache

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CancunHotel.Repository.Context;
+﻿using CancunHotel.Repository.Context;
 using CancunHotel.Repository.Contracts;
 using CancunHotel.Repository.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CancunHotel.Repository
 {

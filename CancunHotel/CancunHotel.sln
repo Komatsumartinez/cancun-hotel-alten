@@ -3,19 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel", "CancunHotel\CancunHotel.csproj", "{1EBD860C-93FC-4B81-B72B-3C0B80E4461B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel", "CancunHotel\CancunHotel.csproj", "{1EBD860C-93FC-4B81-B72B-3C0B80E4461B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Business", "CancunHotel.Business\CancunHotel.Business.csproj", "{A0645335-6246-4068-8331-1557426AD1B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel.Tests", "CancunHotel.Tests\CancunHotel.Tests.csproj", "{3B296195-9049-4DA4-AB7E-01F9F4EF8625}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Business.Models", "CancunHotel.Business.Models\CancunHotel.Business.Models.csproj", "{1D95774E-F267-4F24-945F-75FD2523C7CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel.Repository", "CancunHotel.Repository\CancunHotel.Repository.csproj", "{836D6A4F-A759-4775-9FF2-A95734C79CCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Business.Tests", "CancunHotel.Business.Tests\CancunHotel.Business.Tests.csproj", "{AC2F36B0-EB29-4773-A477-2949297F0380}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Tests", "CancunHotel.Tests\CancunHotel.Tests.csproj", "{3B296195-9049-4DA4-AB7E-01F9F4EF8625}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Repository", "CancunHotel.Repository\CancunHotel.Repository.csproj", "{836D6A4F-A759-4775-9FF2-A95734C79CCD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Repository.Tests", "CancunHotel.Repository.Tests\CancunHotel.Repository.Tests.csproj", "{DA6127DB-C5D0-41F7-B8FE-71F05909D0EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel.Repository.Tests", "CancunHotel.Repository.Tests\CancunHotel.Repository.Tests.csproj", "{DA6127DB-C5D0-41F7-B8FE-71F05909D0EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,18 +21,6 @@ Global
 		{1EBD860C-93FC-4B81-B72B-3C0B80E4461B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EBD860C-93FC-4B81-B72B-3C0B80E4461B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EBD860C-93FC-4B81-B72B-3C0B80E4461B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A0645335-6246-4068-8331-1557426AD1B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0645335-6246-4068-8331-1557426AD1B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0645335-6246-4068-8331-1557426AD1B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0645335-6246-4068-8331-1557426AD1B3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D95774E-F267-4F24-945F-75FD2523C7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D95774E-F267-4F24-945F-75FD2523C7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D95774E-F267-4F24-945F-75FD2523C7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D95774E-F267-4F24-945F-75FD2523C7CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC2F36B0-EB29-4773-A477-2949297F0380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC2F36B0-EB29-4773-A477-2949297F0380}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC2F36B0-EB29-4773-A477-2949297F0380}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC2F36B0-EB29-4773-A477-2949297F0380}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B296195-9049-4DA4-AB7E-01F9F4EF8625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B296195-9049-4DA4-AB7E-01F9F4EF8625}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B296195-9049-4DA4-AB7E-01F9F4EF8625}.Release|Any CPU.ActiveCfg = Release|Any CPU

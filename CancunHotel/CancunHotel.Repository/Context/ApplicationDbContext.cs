@@ -1,6 +1,4 @@
-﻿using CancunHotel.Repository.Contracts;
-using CancunHotel.Repository.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using CancunHotel.Repository.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 

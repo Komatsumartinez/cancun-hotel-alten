@@ -62,8 +62,9 @@ namespace CancunHotel
             // Configure Swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cancun Hotel API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CancunHotel API", Version = "v1" });
 
+                // Configurar la ruta y el nombre del archivo XML generado
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
@@ -80,7 +81,7 @@ namespace CancunHotel
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Selazar Retailer API v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CancunHotel v1");
             });
 
             app.UseHttpsRedirection();

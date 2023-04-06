@@ -1,6 +1,3 @@
-﻿using CancunHotel.Repository;
-using CancunHotel.Repository.Context;
-using CancunHotel.Repository.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +6,16 @@ using System.Text;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using CancunHotel.Repository.Context;
+using CancunHotel.Repository.Contracts;
+using CancunHotel.Repository;
+using System.IO;
+using System;
+using Microsoft.Extensions.Hosting;
 
 namespace CancunHotel
 {
@@ -43,20 +50,19 @@ namespace CancunHotel
                 };
             });
 
-            // Add Identity Framework for authentication and authorization
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+            //Add Identity Framework for authentication and authorization
+
+           services.AddIdentity<IdentityUser, IdentityRole>()
+               .AddEntityFrameworkStores<AppDbContext>()
+               .AddDefaultTokenProviders();
 
             // Add the DbContext for Entity Framework Core
-            services.AddDbContext<ApplicationDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            // Register the repository interface and implementation
+            //Register the repository interface and implementation
             services.AddScoped<IReservationRepository, ReservationRepository>();
 
+            //services.AddDbContext<AppDbContext>();
             services.AddControllers();
 
             // Configure Swagger
@@ -81,7 +87,7 @@ namespace CancunHotel
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CancunHotel v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CancunHotel API v1");
             });
 
             app.UseHttpsRedirection();

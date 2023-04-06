@@ -9,9 +9,9 @@ namespace CancunHotel.Repository
 {
     public class ReservationRepository : IReservationRepository
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly AppDbContext _dbContext;
 
-        public ReservationRepository(ApplicationDbContext dbContext)
+        public ReservationRepository(AppDbContext dbContext)
         {
             _dbContext = dbContext;
         }

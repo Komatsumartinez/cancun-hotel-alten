@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel", "CancunHotel\CancunHotel.csproj", "{1EBD860C-93FC-4B81-B72B-3C0B80E4461B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel", "CancunHotel\CancunHotel.csproj", "{5D4DDBB9-AFE2-44DC-B214-07F3B4FE00EC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel.Tests", "CancunHotel.Tests\CancunHotel.Tests.csproj", "{3B296195-9049-4DA4-AB7E-01F9F4EF8625}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel.Repository", "CancunHotel.Repository\CancunHotel.Repository.csproj", "{836D6A4F-A759-4775-9FF2-A95734C79CCD}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel.Repository.Tests", "CancunHotel.Repository.Tests\CancunHotel.Repository.Tests.csproj", "{DA6127DB-C5D0-41F7-B8FE-71F05909D0EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Repository", "CancunHotel.Repository\CancunHotel.Repository.csproj", "{69B14ED2-5444-444D-9E95-F5140D67D5F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,27 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1EBD860C-93FC-4B81-B72B-3C0B80E4461B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EBD860C-93FC-4B81-B72B-3C0B80E4461B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EBD860C-93FC-4B81-B72B-3C0B80E4461B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EBD860C-93FC-4B81-B72B-3C0B80E4461B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B296195-9049-4DA4-AB7E-01F9F4EF8625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B296195-9049-4DA4-AB7E-01F9F4EF8625}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B296195-9049-4DA4-AB7E-01F9F4EF8625}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B296195-9049-4DA4-AB7E-01F9F4EF8625}.Release|Any CPU.Build.0 = Release|Any CPU
-		{836D6A4F-A759-4775-9FF2-A95734C79CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{836D6A4F-A759-4775-9FF2-A95734C79CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{836D6A4F-A759-4775-9FF2-A95734C79CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{836D6A4F-A759-4775-9FF2-A95734C79CCD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA6127DB-C5D0-41F7-B8FE-71F05909D0EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA6127DB-C5D0-41F7-B8FE-71F05909D0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA6127DB-C5D0-41F7-B8FE-71F05909D0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA6127DB-C5D0-41F7-B8FE-71F05909D0EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D4DDBB9-AFE2-44DC-B214-07F3B4FE00EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D4DDBB9-AFE2-44DC-B214-07F3B4FE00EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D4DDBB9-AFE2-44DC-B214-07F3B4FE00EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D4DDBB9-AFE2-44DC-B214-07F3B4FE00EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69B14ED2-5444-444D-9E95-F5140D67D5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B14ED2-5444-444D-9E95-F5140D67D5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B14ED2-5444-444D-9E95-F5140D67D5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B14ED2-5444-444D-9E95-F5140D67D5F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5E891F44-2FA5-4010-A621-340CA59292B1}
+		SolutionGuid = {E9F2622F-8288-464A-9DB0-265B71300D94}
 	EndGlobalSection
 EndGlobal

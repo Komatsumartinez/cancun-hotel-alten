@@ -8,13 +8,13 @@ namespace CancunHotel.Repository.Context
     /// Implementation of the DbContext needed to interact with the DB.
     /// </summary>
     /// <seealso cref="DbContext" />
-    public class ApplicationDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationDbContext"/> class.
+        /// Initializes a new instance of the <see cref="AppDbContext"/> class.
         /// </summary>
         /// <param name="options">The options.</param>
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public AppDbContext(DbContextOptions<DbContext> options) : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             ChangeTracker.CascadeDeleteTiming = CascadeTiming.OnSaveChanges;
@@ -22,5 +22,9 @@ namespace CancunHotel.Repository.Context
 
         public DbSet<Reservation> Reservations { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Your Connection String");
+        }
     }
 }

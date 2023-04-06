@@ -2,6 +2,8 @@
 using CancunHotel.Repository.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 namespace CancunHotel.Controllers
 {

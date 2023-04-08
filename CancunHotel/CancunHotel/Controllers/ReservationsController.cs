@@ -1,72 +1,88 @@
-﻿using CancunHotel.Repository.Contracts;
+﻿using AutoMapper;
+using CancunHotel.Business;
+using CancunHotel.Business.Models;
+using CancunHotel.Repository.Contracts;
 using CancunHotel.Repository.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CancunHotel.Controllers
 {
 
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
     public class ReservationsController : ControllerBase
     {
-        private readonly IReservationRepository _reservationRepository;
+        private readonly ReservationService _reservationService;
+        private readonly IMapper _mapper;
 
-        public ReservationsController(IReservationRepository reservationRepository)
+        public ReservationsController(ReservationService reservationService, IMapper mapper)
         {
-            _reservationRepository = reservationRepository;
+            _reservationService = reservationService;
+            _mapper = mapper;
         }
 
-        [HttpGet]
-        public IEnumerable<Reservation> GetReservations()
+        [HttpGet("availability")]
+        public async Task<ActionResult<IEnumerable<ReservationDto>>> GetAvailability([FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
         {
-            return _reservationRepository.GetReservations();
+            var availableReservations = await _reservationService.GetAvailableReservationsAsync(startDate, endDate);
+            return Ok(_mapper.Map<IEnumerable<ReservationDto>>(availableReservations));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ReservationDto>> PlaceReservation(CreateReservationDto createReservationDto)
+        {
+            var reservation = _mapper.Map<Reservation>(createReservationDto);
+            var placedReservation = await _reservationService.PlaceReservationAsync(reservation);
+            return CreatedAtAction(nameof(GetReservationById), new { id = placedReservation.Id }, _mapper.Map<ReservationDto>(placedReservation));
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Reservation> GetReservation(Guid id)
+        public async Task<ActionResult<ReservationDto>> GetReservationById(Guid id)
         {
-            var reservation = _reservationRepository.GetReservation(id);
+            var reservation = await _reservationService.GetReservationByIdAsync(id);
             if (reservation == null)
             {
                 return NotFound();
             }
-            return reservation;
-        }
 
-        [HttpPost]
-        public ActionResult<Reservation> CreateReservation(Reservation reservation)
-        {
-            if (reservation.StartDate < DateTime.Today.AddDays(1))
-            {
-                return BadRequest("Reservation start date must be at least tomorrow.");
-            }
-            if (reservation.StartDate.AddDays(3) < reservation.EndDate)
-            {
-                return BadRequest("Reservation can't be longer than 3 days.");
-            }
-            _reservationRepository.AddReservation(reservation);
-            return CreatedAtAction(nameof(GetReservation), new { id = reservation.Id }, reservation);
+            return Ok(_mapper.Map<ReservationDto>(reservation));
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateReservation(Guid id, Reservation reservation)
+        public async Task<IActionResult> ModifyReservation(Guid id, UpdateReservationDto updateReservationDto)
         {
-            if (id != reservation.Id)
+            var reservation = _mapper.Map<Reservation>(updateReservationDto);
+            reservation.Id = id;
+
+            try
             {
-                return BadRequest("Invalid reservation ID.");
+                await _reservationService.ModifyReservationAsync(id, reservation);
             }
-            _reservationRepository.UpdateReservation(reservation);
+            catch (ArgumentException)
+            {
+                return BadRequest();
+            }
+            catch (InvalidOperationException)
+            {
+                return NotFound();
+            }
+
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteReservation(Guid id)
+        public async Task<IActionResult> CancelReservation(Guid id)
         {
-            _reservationRepository.DeleteReservation(id);
+            var canceledReservation = await _reservationService.CancelReservationAsync(id);
+            if (canceledReservation == null)
+            {
+                return NotFound();
+            }
+
             return NoContent();
         }
     }

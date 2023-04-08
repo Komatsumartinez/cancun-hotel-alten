@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel", "CancunHotel\CancunHotel.csproj", "{5D4DDBB9-AFE2-44DC-B214-07F3B4FE00EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel", "CancunHotel\CancunHotel.csproj", "{5D4DDBB9-AFE2-44DC-B214-07F3B4FE00EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Repository", "CancunHotel.Repository\CancunHotel.Repository.csproj", "{69B14ED2-5444-444D-9E95-F5140D67D5F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel.Repository", "CancunHotel.Repository\CancunHotel.Repository.csproj", "{69B14ED2-5444-444D-9E95-F5140D67D5F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Business", "CancunHotel.Business\CancunHotel.Business.csproj", "{0E82D503-705E-4D8D-82DF-6C254D6ACBDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{69B14ED2-5444-444D-9E95-F5140D67D5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69B14ED2-5444-444D-9E95-F5140D67D5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69B14ED2-5444-444D-9E95-F5140D67D5F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E82D503-705E-4D8D-82DF-6C254D6ACBDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E82D503-705E-4D8D-82DF-6C254D6ACBDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E82D503-705E-4D8D-82DF-6C254D6ACBDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E82D503-705E-4D8D-82DF-6C254D6ACBDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

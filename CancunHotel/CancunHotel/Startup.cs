@@ -16,22 +16,33 @@ using CancunHotel.Repository;
 using System.IO;
 using System;
 using Microsoft.Extensions.Hosting;
+using CancunHotel.Business;
+using CancunHotel.Business.Contracts;
 
 namespace CancunHotel
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        public IConfiguration Configuration { get; }
+
         public void ConfigureServices(IServiceCollection services)
         {
-            // Configure authentication and JWT token validation
-            var key = Encoding.ASCII.GetBytes(Configuration["JwtSecret"]);
+            services.AddControllers();
+
+            // Configurar Entity Framework Core
+            services.AddDbContext<HotelDBContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            // Configurar AutoMapper
+            services.AddAutoMapper(typeof(Startup).Assembly);
+
+            // Configurar la autenticación con JWT (reemplaza YOUR_SECRET_KEY con tu propia clave secreta)
+            var key = Encoding.ASCII.GetBytes("JwtSecret");
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -50,30 +61,13 @@ namespace CancunHotel
                 };
             });
 
-            //Add Identity Framework for authentication and authorization
-
-           services.AddIdentity<IdentityUser, IdentityRole>()
-               .AddEntityFrameworkStores<AppDbContext>()
-               .AddDefaultTokenProviders();
-
-            // Add the DbContext for Entity Framework Core
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            //Register the repository interface and implementation
+            // Registrar servicios y repositorios personalizados aquí
             services.AddScoped<IReservationRepository, ReservationRepository>();
+            services.AddScoped<IReservationService, ReservationService>();
 
-            //services.AddDbContext<AppDbContext>();
-            services.AddControllers();
-
-            // Configure Swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CancunHotel API", Version = "v1" });
-
-                // Configurar la ruta y el nombre del archivo XML generado
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelApi", Version = "v1" });
             });
         }
 
@@ -84,18 +78,20 @@ namespace CancunHotel
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CancunHotel API v1");
-            });
-
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            // Usar autenticación y autorización
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "HotelApi v1");
+            });
 
             app.UseEndpoints(endpoints =>
             {

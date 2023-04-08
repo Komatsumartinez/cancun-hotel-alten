@@ -9,10 +9,11 @@ namespace CancunHotel.Repository.Contracts
 {
     public interface IReservationRepository
     {
-        Reservation GetReservation(Guid id);
-        IEnumerable<Reservation> GetReservations();
-        void AddReservation(Reservation reservation);
-        void UpdateReservation(Reservation reservation);
-        void DeleteReservation(Guid id);
+        Task<IEnumerable<Reservation>> GetAllReservationsAsync();
+        Task<Reservation> GetReservationByIdAsync(Guid id);
+        Task<Reservation> AddReservationAsync(Reservation reservation);
+        Task<Reservation> UpdateReservationAsync(Reservation reservation);
+        Task<bool> DeleteReservationAsync(Guid id);
+        
     }
 }

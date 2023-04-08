@@ -1,51 +1,58 @@
 ﻿using CancunHotel.Repository.Context;
 using CancunHotel.Repository.Contracts;
 using CancunHotel.Repository.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CancunHotel.Repository
 {
     public class ReservationRepository : IReservationRepository
     {
-        private readonly AppDbContext _dbContext;
+        private readonly HotelDBContext _context;
 
-        public ReservationRepository(AppDbContext dbContext)
+        public ReservationRepository(HotelDBContext context)
         {
-            _dbContext = dbContext;
+            _context = context;
         }
 
-        public Reservation GetReservation(Guid id)
+        public async Task<IEnumerable<Reservation>> GetAllReservationsAsync()
         {
-            return _dbContext.Reservations.FirstOrDefault(r => r.Id == id);
+            return await _context.Reservations.ToListAsync();
         }
 
-        public IEnumerable<Reservation> GetReservations()
+        public async Task<Reservation> GetReservationByIdAsync(Guid id)
         {
-            return _dbContext.Reservations.ToList();
+            return await _context.Reservations.FindAsync(id);
         }
 
-        public void AddReservation(Reservation reservation)
+        public async Task<Reservation> AddReservationAsync(Reservation reservation)
         {
-            _dbContext.Reservations.Add(reservation);
-            _dbContext.SaveChanges();
+            _context.Reservations.Add(reservation);
+            await _context.SaveChangesAsync();
+            return reservation;
         }
 
-        public void UpdateReservation(Reservation reservation)
+        public async Task<Reservation> UpdateReservationAsync(Reservation reservation)
         {
-            _dbContext.Reservations.Update(reservation);
-            _dbContext.SaveChanges();
+            _context.Entry(reservation).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return reservation;
         }
 
-        public void DeleteReservation(Guid id)
+        public async Task<bool> DeleteReservationAsync(Guid id)
         {
-            var reservation = GetReservation(id);
-            if (reservation != null)
+            var reservation = await _context.Reservations.FindAsync(id);
+            if (reservation == null)
             {
-                _dbContext.Reservations.Remove(reservation);
-                _dbContext.SaveChanges();
+                return false;
             }
+
+            _context.Reservations.Remove(reservation);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

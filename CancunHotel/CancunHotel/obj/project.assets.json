@@ -49,21 +49,6 @@
           "buildTransitive/netcoreapp3.0/EntityFramework.targets": {}
         }
       },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.23": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "type": "package",
         "compile": {
@@ -1848,21 +1833,6 @@
         "tools/netcoreapp3.0/any/ef6.dll",
         "tools/netcoreapp3.0/any/ef6.pdb",
         "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
-      ]
-    },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.23": {
-      "sha512": "UkSDF8efuP/ZbvKjtWaTCoMq5vHW/+2OHaPEY1sGC8dYkl3elmUTsvizQcv95QozzLK0RRnT01JZNgNAG9wlSg==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.23",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
-        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
-        "microsoft.aspnetcore.authentication.jwtbearer.3.1.23.nupkg.sha512",
-        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -6644,7 +6614,6 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "CancunHotel.Business >= 1.0.0",
       "CancunHotel.Repository >= 1.0.0",
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.23",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.23",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.23",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.23",
@@ -6712,10 +6681,6 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[11.0.0, )"
-          },
-          "Microsoft.AspNetCore.Authentication.JwtBearer": {
-            "target": "Package",
-            "version": "[3.1.23, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

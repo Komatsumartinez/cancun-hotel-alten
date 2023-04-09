@@ -1,23 +1,15 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Swashbuckle.AspNetCore.Swagger;
-using Microsoft.OpenApi.Models;
-using System.Reflection;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using CancunHotel.Repository.Context;
-using CancunHotel.Repository.Contracts;
-using CancunHotel.Repository;
-using System.IO;
-using System;
-using Microsoft.Extensions.Hosting;
 using CancunHotel.Business;
 using CancunHotel.Business.Contracts;
+using CancunHotel.Repository;
+using CancunHotel.Repository.Context;
+using CancunHotel.Repository.Contracts;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace CancunHotel
 {
@@ -34,34 +26,11 @@ namespace CancunHotel
         {
             services.AddControllers();
 
-            // Configurar Entity Framework Core
             services.AddDbContext<HotelDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            // Configurar AutoMapper
-            services.AddAutoMapper(typeof(Startup).Assembly);
+            services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
-            // Configurar la autenticación con JWT (reemplaza YOUR_SECRET_KEY con tu propia clave secreta)
-            var key = Encoding.ASCII.GetBytes("JwtSecret");
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(x =>
-            {
-                x.RequireHttpsMetadata = false;
-                x.SaveToken = true;
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
-            });
-
-            // Registrar servicios y repositorios personalizados aquí
             services.AddScoped<IReservationRepository, ReservationRepository>();
             services.AddScoped<IReservationService, ReservationService>();
 
@@ -82,10 +51,6 @@ namespace CancunHotel
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            // Usar autenticación y autorización
-            app.UseAuthentication();
-            app.UseAuthorization();
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>

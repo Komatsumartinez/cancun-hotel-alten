@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunHotel.Repository", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Business", "CancunHotel.Business\CancunHotel.Business.csproj", "{0E82D503-705E-4D8D-82DF-6C254D6ACBDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunHotel.Tests", "CancunHotel.Tests\CancunHotel.Tests.csproj", "{9BC798F5-E576-4DC4-83A8-B9394F6695B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0E82D503-705E-4D8D-82DF-6C254D6ACBDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E82D503-705E-4D8D-82DF-6C254D6ACBDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E82D503-705E-4D8D-82DF-6C254D6ACBDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC798F5-E576-4DC4-83A8-B9394F6695B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC798F5-E576-4DC4-83A8-B9394F6695B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC798F5-E576-4DC4-83A8-B9394F6695B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC798F5-E576-4DC4-83A8-B9394F6695B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,18 +7,7 @@ namespace CancunHotel.Business.Models
     public class ReservationDto
     {
         public Guid Id { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-    }
-
-    public class CreateReservationDto
-    {
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-    }
-
-    public class UpdateReservationDto
-    {
+        public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }

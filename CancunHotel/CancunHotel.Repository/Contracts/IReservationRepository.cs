@@ -14,6 +14,6 @@ namespace CancunHotel.Repository.Contracts
         Task<Reservation> AddReservationAsync(Reservation reservation);
         Task<Reservation> UpdateReservationAsync(Reservation reservation);
         Task<bool> DeleteReservationAsync(Guid id);
-        
+        IEnumerable<Reservation> GetOverlappingReservations(DateTime startDate, DateTime endDate);
     }
 }

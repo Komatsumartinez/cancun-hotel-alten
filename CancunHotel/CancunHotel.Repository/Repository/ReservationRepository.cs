@@ -18,6 +18,17 @@ namespace CancunHotel.Repository
             _context = context;
         }
 
+        public IEnumerable<Reservation> GetOverlappingReservations(DateTime startDate, DateTime endDate)
+        {
+            return _context.Reservations
+                .Where(r =>
+                    (r.StartDate <= endDate && r.EndDate >= startDate) 
+                    || (r.StartDate >= startDate && r.StartDate <= endDate) 
+                    || (r.EndDate >= startDate && r.EndDate <= endDate) 
+                )
+                .ToList();
+        }
+
         public async Task<IEnumerable<Reservation>> GetAllReservationsAsync()
         {
             return await _context.Reservations.ToListAsync();

@@ -9,10 +9,10 @@ namespace CancunHotel.Business.Contracts
     public interface IReservationService
     {
         Task<Reservation> GetReservationByIdAsync(Guid id);
-        Task<IEnumerable<Reservation>> GetAvailableReservationsAsync(DateTime startDate, DateTime endDate);
+        string GetAvailableReservations(DateTime startDate, DateTime endDate);
         Task<Reservation> PlaceReservationAsync(Reservation reservation);
-        Task<Reservation> CancelReservationAsync(Guid id);
+        Task<bool> CancelReservationAsync(Guid id);
         Task<Reservation> ModifyReservationAsync(Guid id, Reservation updatedReservation);
-
+        bool ValidateToken(string authHeader);
     }
 }

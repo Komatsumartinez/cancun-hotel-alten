@@ -11,6 +11,17 @@ This is an API for managing reservations for the Hotel Cancún, developed using 
 * Moq
 
 # Getting Started
+* Database
+
+    Sql instace created on AWS for test purpose.
+    
+    Host: cancunhotel.cff7thc9uyue.us-east-1.rds.amazonaws.com
+    
+    Port: 1433
+    
+    User: admintest
+    
+    Password: admintest01!
 
 * Prerequisites
 

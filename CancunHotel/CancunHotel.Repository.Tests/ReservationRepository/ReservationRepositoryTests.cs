@@ -1,14 +1,24 @@
+using CancunHotel.Repository;
+using CancunHotel.Repository.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using Xunit;
 
-namespace CancunHotel.Repository.Tests
+namespace SelazarUserDB.Repository.Tests.ReservationRepositoryTest
 {
     public class ReservationRepositoryTests
     {
-        [Fact]
-        public void Test1()
-        {
+        protected DbContextOptions<HotelDBContext> Options;
+        protected HotelDBContext HotelDBContext;
+        protected ReservationRepository ReservationRepo;
 
+        public ReservationRepositoryTests()
+        {
+            Options = new DbContextOptionsBuilder<HotelDBContext>()
+                  .UseInMemoryDatabase(Guid.NewGuid().ToString()).Options;
+
+            HotelDBContext = new HotelDBContext(Options);
+            ReservationRepo = new ReservationRepository(HotelDBContext);
         }
     }
 }

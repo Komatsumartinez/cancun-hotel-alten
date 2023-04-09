@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CancunHotel.Repository.Tests.ReservationRepository.DeleteReservationAsync
 {
-    internal class DeleteReservationAsyncTests
+    public class DeleteReservationAsyncTests
     {
     }
 }

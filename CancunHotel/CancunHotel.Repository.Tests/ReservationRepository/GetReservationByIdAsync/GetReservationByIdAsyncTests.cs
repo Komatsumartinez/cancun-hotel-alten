@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CancunHotel.Repository.Tests.ReservationRepository.GetReservationByIdAsync
 {
-    internal class GetReservationByIdAsyncTests
+    public class GetReservationByIdAsyncTests
     {
     }
 }

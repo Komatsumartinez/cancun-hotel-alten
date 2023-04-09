@@ -3,7 +3,7 @@ using Xunit;
 
 namespace CancunHotel.Business.Tests
 {
-    public class UnitTest1
+    public class ReservationServiceTests
     {
         [Fact]
         public void Test1()

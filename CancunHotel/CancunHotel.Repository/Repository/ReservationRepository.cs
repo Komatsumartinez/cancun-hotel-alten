@@ -29,11 +29,6 @@ namespace CancunHotel.Repository
                 .ToList();
         }
 
-        public async Task<IEnumerable<Reservation>> GetAllReservationsAsync()
-        {
-            return await _context.Reservations.ToListAsync();
-        }
-
         public async Task<Reservation> GetReservationByIdAsync(Guid id)
         {
             return await _context.Reservations.FindAsync(id);

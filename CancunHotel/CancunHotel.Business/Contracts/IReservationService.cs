@@ -13,6 +13,5 @@ namespace CancunHotel.Business.Contracts
         Task<Reservation> PlaceReservationAsync(Reservation reservation);
         Task<bool> CancelReservationAsync(Guid id);
         Task<Reservation> ModifyReservationAsync(Guid id, Reservation updatedReservation);
-        bool ValidateToken(string authHeader);
     }
 }

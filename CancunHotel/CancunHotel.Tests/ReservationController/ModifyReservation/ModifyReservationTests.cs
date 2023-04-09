@@ -35,7 +35,7 @@ namespace CancunHotel.Tests.ReservationController.ModifyReservation
             #endregion
 
             #region Setup       
-            MockService.Setup(s => s.ModifyReservationAsync(reservationId, reservation))
+            MockService.Setup(s => s.ModifyReservationAsync(reservationId, It.IsAny<Reservation>()))
                 .ReturnsAsync(reservation)
                 .Verifiable();
             #endregion
@@ -45,7 +45,7 @@ namespace CancunHotel.Tests.ReservationController.ModifyReservation
             #endregion
 
             #region Verify
-            MockService.Verify(s => s.ModifyReservationAsync(reservationId, reservation), Times.Never);
+            MockService.Verify(s => s.ModifyReservationAsync(reservationId, It.IsAny<Reservation>()), Times.Once);
             #endregion
 
             #region Assert     

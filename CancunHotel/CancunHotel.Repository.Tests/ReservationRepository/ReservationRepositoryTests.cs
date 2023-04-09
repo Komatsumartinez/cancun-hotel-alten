@@ -3,7 +3,7 @@ using CancunHotel.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace SelazarUserDB.Repository.Tests.ReservationRepositoryTest
+namespace CancunHotels.Repository.Tests.ReservationRepositoryTest
 {
     public class ReservationRepositoryTests
     {

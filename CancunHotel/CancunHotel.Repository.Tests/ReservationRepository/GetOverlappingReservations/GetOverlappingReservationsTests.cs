@@ -1,5 +1,5 @@
 ﻿using CancunHotel.Repository.Models;
-using SelazarUserDB.Repository.Tests.ReservationRepositoryTest;
+using CancunHotels.Repository.Tests.ReservationRepositoryTest;
 using System;
 using System.Collections.Generic;
 using System.Linq;

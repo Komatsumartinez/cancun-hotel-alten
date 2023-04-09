@@ -19,10 +19,16 @@ namespace CancunHotel.Controllers
         private readonly IReservationService _reservationService;
         private readonly IMapper _mapper;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ReservationsController" /> class.
+        /// </summary>
+        /// <param name="reservationService">The integration service.</param>
+        /// <param name="mapper">Mapper profiles</param>
+        /// <exception cref="ArgumentNullException">service</exception>
         public ReservationsController(IReservationService reservationService, IMapper mapper)
         {
-            _reservationService = reservationService;
-            _mapper = mapper;
+            _reservationService = reservationService ?? throw new ArgumentNullException(nameof(reservationService));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         /// <summary>

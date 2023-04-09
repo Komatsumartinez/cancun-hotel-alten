@@ -2,7 +2,6 @@ using CancunHotel.Repository;
 using CancunHotel.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
-using Xunit;
 
 namespace SelazarUserDB.Repository.Tests.ReservationRepositoryTest
 {
@@ -11,7 +10,6 @@ namespace SelazarUserDB.Repository.Tests.ReservationRepositoryTest
         protected DbContextOptions<HotelDBContext> Options;
         protected HotelDBContext HotelDBContext;
         protected ReservationRepository ReservationRepo;
-
         public ReservationRepositoryTests()
         {
             Options = new DbContextOptionsBuilder<HotelDBContext>()
